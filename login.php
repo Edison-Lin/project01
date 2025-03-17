@@ -34,7 +34,7 @@ if (isset($_SESSION['login'])) {
     <style type="text/css">
         .col-md-10 {
             background-repeat: no-repeat;
-            background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
+            background-image: linear-gradient(rgb(138, 236, 47), rgb(93, 28, 136));
         }
 
         /* Card component */
@@ -89,7 +89,7 @@ if (isset($_SESSION['login'])) {
         }
 
         .other a {
-            color: rgb(104, 145, 162);
+            color: rgb(184, 17, 109);
         }
 
         .other a:hover,
@@ -143,7 +143,7 @@ if (isset($_SESSION['login'])) {
                             <button type="submit" class="btn btn-signin mt-4">sign in</button>
                         </form>
                         <div class="other mt-5 text-center">
-                            <a href="register.php?sPath=<?= basename($_SERVER['PHP_SELF']); ?>">New user</a>/<a href="#">Forget the password?</a>
+                            <a href="register.php?sPath=<?= $sPath; ?>">New user</a>/<a href="#">Forget the password?</a>
                         </div>
                     </div>
 
@@ -211,7 +211,7 @@ if (isset($_SESSION['login'])) {
         //can為canvas 的ID名稱
         //150=影像寬，50=影像高，blue=影像背景顏色
         //white=文字顏色，28px=文字大小，5=認證碼長度
-        inputTxt.value = captchaCode("can", 200, 60, "lightblue", "red", "32px", 5);
+        inputTxt.value = captchaCode("can", 200, 60, "pink", "red", "32px", 5);
     }
     $(function() {
         getCaptcha();
