@@ -170,30 +170,36 @@ if (isset($_SESSION['login'])) {
         $("#form1").submit(function() {
             const inputAccount = $("#inputAccount").val();
             const inputPassword = MD5($("#inputPassword").val());
+            const captcha = $("#captcha").val();
+            const recaptcha = $("#recaptcha").val();
             $("#loading").show();
             // 利用$ajax函數呼叫後台的auth_user.php驗證帳號密碼
-            $.ajax({
-                url: apidirect + 'auth_user.php',
-                type: 'post',
-                dataType: 'json',
-                data: {
-                    inputAccount: inputAccount,
-                    inputPassword: inputPassword,
-                },
-                success: function(data) {
-                    if (data.c == true) {
-                        alert(data.m);
-                        console.log(data.m);
-                        window.location.href = "<?php echo $sPath; ?>";
-                    } else {
-                        alert(data.m);
-                        console.log(data.m);
+            if(recaptcha==captcha){
+                $.ajax({
+                    url: apidirect + 'auth_user.php',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        inputAccount: inputAccount,
+                        inputPassword: inputPassword,
+                    },
+                    success: function(data) {
+                        if (data.c == true) {
+                            alert(data.m);
+                            console.log(data.m);
+                            window.location.href = "<?php echo $sPath; ?>";
+                        } else {
+                            alert(data.m);
+                            console.log(data.m);
+                        }
+                    },
+                    error: function(data) {
+                        alert('系統目前無法連接到後台資料庫。');
                     }
-                },
-                error: function(data) {
-                    alert('系統目前無法連接到後台資料庫。');
-                }
-            });
+                });
+            }else{
+                alert("驗證碼錯誤，請重新再試一次!");
+            }
         });
     });
     //產生驗證碼
