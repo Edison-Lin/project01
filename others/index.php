@@ -34,19 +34,14 @@
                     <!-- 引入sidebar分類導覽 -->
                     <?php require_once($phpFileDir . "sidebar.php"); ?>
                     <!-- 引入熱銷商品模組 -->
-                    <?php require_once($phpFileDir . "hot.php"); ?>
+                    <?php //require_once($phpFileDir . "index_hot.php"); ?>
                 </div>
                 <!-- 右側內容區 -->
                 <div class="col-md-10">
-                    <?php if(empty($_GET)){ ?>
                     <!-- 引入廣告輪播 -->
                     <?php require_once($phpFileDir . "carousel.php"); ?>
                     <!-- 換區水平線hr -->
                     <hr>
-                    <?php }else{ ?>
-                    <!-- 引入breadcrumb -->
-                    <?php require_once($phpFileDir . "breadcrumb.php"); ?>
-                    <?php } ?>
                     <!-- 引入product藥妝商品 -->
                     <?php require_once($phpFileDir . "product_list.php"); ?>
                 </div>
@@ -66,4 +61,4 @@
 
 </html>
 <!-- 引入js.php -->
-<?php require_once($phpFileDir . "jsfile.php"); ?>
+<?php require_once($phpFileDir . "jsfile.php") ?>

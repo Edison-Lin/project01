@@ -15,10 +15,10 @@
     $cart_rs = $link->query($SQLstring);
     $ptotal = 0; //定義累加變數初始值=0
     ?>
-    <h3>電商藥粧：購物車</h3>
+    <h3>購物車</h3>
+    <a href="./drugstore.php" name="btn01" class="btn btn-primary">繼續購物</a>
+    <button type="button" id="btn01" name="btn01" class="btn btn-info" onclick="window.history.go(-1);">回到上一頁</button>
     <?php if ($cart_rs->rowCount() != 0) { ?>
-        <a href="./drugstore.php" name="btn01" class="btn btn-primary">繼續購物</a>
-        <button type="button" id="btn01" name="btn01" class="btn btn-info" onclick="window.history.go(-1);">回到上一頁</button>
         <button type="button" id="btn03" name="btn03" class="btn btn-success" onclick="btn_confirmlink('確定清空購物車','<?=$apiFileDir;?>shopcart_del.php?mode=2');">清空購物車</button>
         <a href="checkout.php" id="btn04" name="btn04" class="btn btn-warning">前往結帳</a>
         <div class="table-responsive-md">
@@ -70,6 +70,7 @@
             </table>
         </div>
     <?php } else { ?>
+        <hr>
         <div class="alert alert-warning" role="alert">
             抱歉，目前購物車沒有相關產品
         </div>
