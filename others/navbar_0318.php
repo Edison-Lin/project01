@@ -73,21 +73,32 @@
                 <button class="btn btn-outline-success text-bg-info m-1" type="submit"><i class="fas fa-search fa-lg"></i>&emsp;開始尋找</button>
             </form>
         </div>
-        <div><?php if (isset($_SESSION['login'])) { ?>
-                    <ul class="navbar-nav ms-auto me-4">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
-                                <img src="./uploads/<?php echo ($_SESSION['imgname'] != '') ? $_SESSION['imgname'] : 'avatar.svg'; ?>" width="50" height="50" class="rounded-circle">
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item" href="orderlist.php">訂單查閱</a></li>
-                                <li><a class="dropdown-item" href="profile.php">個人資料</a></li>
-                                <li><a class="dropdown-item" href="#" 
-                                onclick="btn_confirmlink('請確認是否要登出?','./logout.php' )">登出</a></li>
-                            </ul>
+        <div>
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        會員
+                    </a>
+                    <ul class="dropdown-menu">
+
+                        <li>
+                            <a class="dropdown-item" href="./register.php">會員註冊</a>
+                        </li>
+                        <?php if (isset($_SESSION['login'])) { ?>
+                            <li>
+                                <a href="#" class="dropdown-item" onclick="btn_confirmlink('是否確認登出?','./logout.php?sPath=<?= basename($_SERVER['PHP_SELF']); ?>' )">會員登出</a>
+                            </li>
+                        <?php } else { ?>
+                            <li>
+                                <a class="dropdown-item" href="./login.php?sPath=<?= basename($_SERVER['PHP_SELF']); ?>">會員登入</a>
+                            </li>
+                        <?php } ?>
+                        <li>
+                            <a class="dropdown-item" href="#">會員中心</a>
                         </li>
                     </ul>
-                <?php } ?>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
