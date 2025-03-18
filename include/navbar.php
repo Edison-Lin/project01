@@ -73,7 +73,8 @@
                 <button class="btn btn-outline-success text-bg-info m-1" type="submit"><i class="fas fa-search fa-lg"></i>&emsp;開始尋找</button>
             </form>
         </div>
-        <div><?php if (isset($_SESSION['login'])) { ?>
+        <div>
+            <?php if (isset($_SESSION['login'])) { ?>
                     <ul class="navbar-nav ms-auto me-4">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
