@@ -9,7 +9,9 @@
 <?php require_once("include/TopHead.php"); ?>
 <!-- 載入共用php函式庫 -->
 <?php require_once($phpFileDir . "php_lib.php"); ?>
-
+<?php if(!isset($_GET['p_id']))
+    echo '<script>window.history.go(-1);</script>';
+?>
 <!doctype html>
 <html lang="zh-tw">
 

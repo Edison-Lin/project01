@@ -32,8 +32,13 @@
                 <div id="progress-div01" class="progress" style="width:100%;display:none;">
                     <div id="progress-bar01" class="progress-bar progress-bar-striped" role="progressbar" style="width:0%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">0%</div>
                 </div>
+<<<<<<< HEAD
                 <input type="hidden" name="uploadname" id="uploadname" value="" />
                 <img id="showimg" name="showimg" src="" alt="photo" style="display:none;" class="img-fluid">
+=======
+                <input type="hidden" name="uploadname" id="uploadname" :value="`${(member.imgname)?member.imgname:''}`" />
+                <img id="showimg" name="showimg" :src="`uploads/${(member.imgname)?member.imgname:'avatar.svg'}`" alt="photo" style="display:none;" class="img-fluid">
+>>>>>>> 65a6886a2ef1694fa5e1be2d60557c089468cdd2
             </div>
             <!-- 原始大頭貼顯示 -->
             <div class="input-group mb-3" v-if="readonly">

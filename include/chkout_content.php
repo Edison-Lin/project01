@@ -17,7 +17,7 @@
                         $ctName = '';
                         $toName = '';
                     } ?>
-                    <h3>電商藥粧　會員：<?= $_SESSION['cname']; ?>　結帳作業</h3>
+                    <h3>會員：<?= $_SESSION['cname']; ?>　結帳作業</h3>
                     <?php
                     $outlay = "cart.cartid,cart.qty,pd.p_id,pd.classid,pd.p_name,pd.p_intro,pd.p_price,py.fonticon,py.cname,id.dir_name,id2.dir_name AS upfile,pi.img_id,pi.img_file";
                     $First_Table = sprintf("SELECT %s FROM cart", $outlay);

@@ -5,8 +5,9 @@
 ?>
 <!-- 這是將資料庫，連接程式載入 -->
 <?php require_once('Connections/conn_db.php') ?>
+<!-- 載入檔案資料夾變數 -->
+<?php require_once("include/TopHead.php"); ?>
 <!-- 載入共用php函式庫 -->
-<?php $phpFileDir = "./include/"; ?>
 <?php require_once($phpFileDir . "php_lib.php"); ?>
 <?php
 if (!isset($_SESSION['login'])) {

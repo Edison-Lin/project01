@@ -41,6 +41,8 @@
                     <?php if(empty($_GET)){ ?>
                     <!-- 引入廣告輪播 -->
                     <?php require_once($phpFileDir . "carousel.php"); ?>
+                    <!-- 換區水平線hr -->
+                    <hr>
                     <?php }else{ ?>
                     <!-- 引入breadcrumb -->
                     <?php require_once($phpFileDir . "breadcrumb.php"); ?>

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg d-flex justify-content-around bg-warning">
     <div class="container-fluid">
-        <a class="navbar-brand" href="./index_p01.php">
+        <a class="navbar-brand" href="./index.php">
             <div class="d-flex flex-column">
                 <img src="./images/qnap-logo-black.svg" class="img-fluid" alt="威聯通科技" loading="lazy">
                 <img src="./images/logo.png" class="img-fluid" alt="友訊科技">
@@ -46,21 +46,23 @@
                         </ul>
                     </li>
                 <?php } ?>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        企業專區
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">認識企業文化</a></li>
-                        <li><a class="dropdown-item" href="#">全台門市資訊</a></li>
-                        <li><a class="dropdown-item" href="#">供應商報價服務</a></li>
-                        <li><a class="dropdown-item" href="#">加盟專區</a></li>
-                        <li><a class="dropdown-item" href="#">投資人專區</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">最新活動</a>
-                </li>
+                <?php if (false) { ?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            企業專區
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">認識企業文化</a></li>
+                            <li><a class="dropdown-item" href="#">全台門市資訊</a></li>
+                            <li><a class="dropdown-item" href="#">供應商報價服務</a></li>
+                            <li><a class="dropdown-item" href="#">加盟專區</a></li>
+                            <li><a class="dropdown-item" href="#">投資人專區</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">最新活動</a>
+                    </li>
+                <?php } ?>
                 <li class="nav-item">
                     <a class="nav-link" href="./orderlist.php">查訂單</a>
                 </li>
@@ -73,21 +75,37 @@
                 <button class="btn btn-outline-success text-bg-info m-1" type="submit"><i class="fas fa-search fa-lg"></i>&emsp;開始尋找</button>
             </form>
         </div>
-        <div><?php if (isset($_SESSION['login'])) { ?>
-                    <ul class="navbar-nav ms-auto me-4">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
-                                <img src="./uploads/<?php echo ($_SESSION['imgname'] != '') ? $_SESSION['imgname'] : 'avatar.svg'; ?>" width="50" height="50" class="rounded-circle">
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item" href="orderlist.php">訂單查閱</a></li>
-                                <li><a class="dropdown-item" href="profile.php">個人資料</a></li>
-                                <li><a class="dropdown-item" href="#" 
-                                onclick="btn_confirmlink('請確認是否要登出?','./logout.php' )">登出</a></li>
-                            </ul>
-                        </li>
+        <div>
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+                        <?php if (isset($_SESSION['login'])){?>
+                        <img src="./uploads/<?php echo ($_SESSION['imgname'] != '') ? $_SESSION['imgname'] : 'avatar.svg'; ?>" width="50" height="50" class="rounded-circle">
+                        <?php } ?>
+                        會員:
+                        <?php if (isset($_SESSION['login'])){?>
+                            <?= $_SESSION['cname']; ?>
+                            <?php } ?>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                            <li>
+                                <a class="dropdown-item" href="./register.php">會員註冊</a>
+                            </li>
+                        <?php if (isset($_SESSION['login'])) { ?>
+                            <li><a class="dropdown-item" href="orderlist.php">訂單查閱</a></li>
+                            <li><a class="dropdown-item" href="profile.php">個人資料</a></li>
+                            <li><a href="#" class="dropdown-item" onclick="btn_confirmlink('是否確認登出?','./logout.php?sPath=<?= basename($_SERVER['PHP_SELF']); ?>' )">會員登出</a></li>
+                        <?php } else { ?>
+                            <li>
+                                <a class="dropdown-item" href="./login.php?sPath=<?= basename($_SERVER['PHP_SELF']); ?>">會員登入</a>
+                            </li>
+                        <?php } ?>
+                            <li>
+                                <a class="dropdown-item d-none" href="#">會員中心</a>
+                            </li>
                     </ul>
-                <?php } ?>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>

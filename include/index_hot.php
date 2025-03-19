@@ -24,7 +24,7 @@ $pageNum_rs = 0;
 if (isset($_GET['pageNum_rs'])) {
     $pageNum_rs = $_GET['pageNum_rs'];
 }
-$startRow_rs = $pageNum_rs * $maxRows_rs;
+$startRow_rs = 1 * $maxRows_rs;
 //自行規整版本
 $outlay = "pd.p_id,pd.classid,pd.p_name,pd.p_intro,pd.p_price,py.fonticon,py.cname,id.dir_name,id2.dir_name AS upfile,pi.img_id,pi.img_file";
 $First_Table = sprintf("SELECT %s FROM product as pd ", $outlay);
@@ -71,6 +71,7 @@ $i = 1; //控制每列row產生
         } else {
             $all_rs = $link->query($queryFirst);
             $totalRows_rs = $all_rs->rowCount();
+            $totalRows_rs=1;
         }
         $totalPage_rs = ceil($totalRows_rs / $maxRows_rs) - 1;
         $prev_rs = "&laquo;";
